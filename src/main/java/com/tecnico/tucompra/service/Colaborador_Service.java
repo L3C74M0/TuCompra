@@ -1,5 +1,6 @@
 package com.tecnico.tucompra.service;
 
+import java.util.List;
 import java.util.Optional;
 import com.tecnico.tucompra.model.Colaborador;
 import com.tecnico.tucompra.model.Detalle_Historia_Clinica;
@@ -17,7 +18,9 @@ public interface Colaborador_Service {
 
 	public void delete(Colaborador colaborador);
 
-	public Iterable<Colaborador> findAll();
+	public List<Colaborador> findAll();
 
 	public Optional<Colaborador> findById(int id);
+	
+	public void deleteById(int id);
 }

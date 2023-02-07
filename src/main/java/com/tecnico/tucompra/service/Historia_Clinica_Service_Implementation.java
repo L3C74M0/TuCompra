@@ -63,13 +63,18 @@ public class Historia_Clinica_Service_Implementation implements Historia_Clinica
 	}
 
 	@Override
-	public Iterable<Historia_Clinica> findAll() {
+	public List<Historia_Clinica> findAll() {
 		return historia_clinica_repository.findAll();
 	}
 
 	@Override
 	public Optional<Historia_Clinica> findById(int id) {
 		return historia_clinica_repository.findById((long) id);
+	}
+
+	@Override
+	public void deleteById(int id) {
+		historia_clinica_repository.deleteById((long) id);
 	}
 
 }

@@ -1,6 +1,7 @@
 package com.tecnico.tucompra.service;
 
 import java.util.Date;
+import java.util.List;
 import java.util.Optional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -96,13 +97,18 @@ public class Detalle_Historia_Clinica_Implementation implements Detalle_Historia
 	}
 
 	@Override
-	public Iterable<Detalle_Historia_Clinica> findAll() {
+	public List<Detalle_Historia_Clinica> findAll() {
 		return detalle_Historia_Clinica_Repository.findAll();
 	}
 
 	@Override
 	public Optional<Detalle_Historia_Clinica> findById(int id) {
 		return detalle_Historia_Clinica_Repository.findById((long) id);
+	}
+
+	@Override
+	public void deleteById(int id) {
+		detalle_Historia_Clinica_Repository.deleteById((long) id);
 	}
 
 }

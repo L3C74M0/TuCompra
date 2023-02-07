@@ -17,7 +17,9 @@ public interface Historia_Clinica_Service {
 
 	public void delete(Historia_Clinica historia_clinica);
 
-	public Iterable<Historia_Clinica> findAll();
+	public List<Historia_Clinica> findAll();
 
 	public Optional<Historia_Clinica> findById(int id);
+	
+	public void deleteById(int id);
 }

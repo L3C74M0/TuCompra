@@ -1,5 +1,6 @@
 package com.tecnico.tucompra.service;
 
+import java.util.List;
 import java.util.Optional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -80,13 +81,18 @@ public class Colaborador_Service_Implementation implements Colaborador_Service {
 	}
 
 	@Override
-	public Iterable<Colaborador> findAll() {
+	public List<Colaborador> findAll() {
 		return colaborador_Repository.findAll();
 	}
 
 	@Override
 	public Optional<Colaborador> findById(int id) {
 		return colaborador_Repository.findById((long) id);
+	}
+
+	@Override
+	public void deleteById(int id) {
+		colaborador_Repository.deleteById((long) id);
 	}
 
 }

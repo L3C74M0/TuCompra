@@ -1,6 +1,7 @@
 package com.tecnico.tucompra.service;
 
 import java.util.Date;
+import java.util.List;
 import java.util.Optional;
 import com.tecnico.tucompra.model.Colaborador;
 import com.tecnico.tucompra.model.Detalle_Historia_Clinica;
@@ -20,7 +21,9 @@ public interface Detalle_Historia_Clinica_Service {
 
 	public void delete(Detalle_Historia_Clinica detalle_historia_clinica);
 
-	public Iterable<Detalle_Historia_Clinica> findAll();
+	public List<Detalle_Historia_Clinica> findAll();
 
 	public Optional<Detalle_Historia_Clinica> findById(int id);
+	
+	public void deleteById(int id);
 }

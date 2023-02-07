@@ -87,4 +87,9 @@ public class Usuario_Service_Implementation implements Usuario_Service {
 	public Optional<Usuario> findById(int id) {
 		return usuario_repository.findById((long) id);
 	}
+
+	@Override
+	public void deleteById(int id) {
+		usuario_repository.deleteById((long) id);
+	}
 }

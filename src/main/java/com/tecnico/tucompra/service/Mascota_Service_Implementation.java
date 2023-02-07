@@ -1,5 +1,6 @@
 package com.tecnico.tucompra.service;
 
+import java.util.List;
 import java.util.Optional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -47,7 +48,7 @@ public class Mascota_Service_Implementation implements Mascota_Service {
 	@Override
 	public Mascota add(int id, String nombre, String raza, Usuario usuario, char sexo,
 			Historia_Clinica historia_clinica) {
-		
+
 		Mascota mascotaDummy = new Mascota();
 		mascotaDummy.setId(id);
 		mascotaDummy.setNombre(nombre);
@@ -55,7 +56,7 @@ public class Mascota_Service_Implementation implements Mascota_Service {
 		mascotaDummy.setSexo(sexo);
 		mascotaDummy.setUsuario(usuario);
 		mascotaDummy.setHistoria_clinica(historia_clinica);
-		
+
 		mascota_repository.save(mascotaDummy);
 		return mascotaDummy;
 	}
@@ -71,7 +72,7 @@ public class Mascota_Service_Implementation implements Mascota_Service {
 	}
 
 	@Override
-	public Iterable<Mascota> findAll() {
+	public List<Mascota> findAll() {
 		return mascota_repository.findAll();
 	}
 
@@ -80,4 +81,8 @@ public class Mascota_Service_Implementation implements Mascota_Service {
 		return mascota_repository.findById((long) id);
 	}
 
+	@Override
+	public void deleteById(int id) {
+		mascota_repository.deleteById((long) id);
+	}
 }

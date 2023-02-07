@@ -20,4 +20,6 @@ public interface Usuario_Service {
 	public List<Usuario> findAll();
 
 	public Optional<Usuario> findById(int id);
+	
+	public void deleteById(int id);
 }

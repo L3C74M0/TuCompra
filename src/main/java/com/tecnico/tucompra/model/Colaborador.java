@@ -1,5 +1,6 @@
 package com.tecnico.tucompra.model;
 
+import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
@@ -15,24 +16,31 @@ public class Colaborador {
 	@NonNull
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
+	@Column(name = "COLABORADOR_ID")
 	private int id;
 
 	@NonNull
+	@Column(name = "COLABORADOR_NOMBRE")
 	private String nombre;
 
 	@NonNull
+	@Column(name = "COLABORADOR_APELLIDO")
 	private String apellido;
 
 	@NonNull
+	@Column(name = "COLABORADOR_CARGO")
 	private String cargo;
 
 	@NonNull
+	@Column(name = "COLABORADOR_ESPECIALIDAD")
 	private String especialidad;
 
 	@NonNull
+	@Column(name = "COLABORADOR_TIPO_DOCUMENTO")
 	private String tipo_documento;
 
 	@NonNull
+	@Column(name = "COLABORADOR_DOCUMENTO_IDENTIFICACION")
 	private int documento_identificacion;
 
 	@OneToOne

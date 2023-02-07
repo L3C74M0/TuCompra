@@ -12,34 +12,34 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
-import com.tecnico.tucompra.model.Mascota;
-import com.tecnico.tucompra.service.Mascota_Service;
+import com.tecnico.tucompra.model.Colaborador;
+import com.tecnico.tucompra.service.Colaborador_Service;
 
 @RestController
-@RequestMapping("/mascotaR/")
-public class MascotaREST {
+@RequestMapping("/colaboradorR/")
+public class ColaboradorREST {
 
 	@Autowired
-	private Mascota_Service mascota_Service;
+	private Colaborador_Service colaborador_Service;
 
-	@GetMapping("/mascotas")
-	public List<Mascota> listarMascotas() {
-		return mascota_Service.findAll();
+	@GetMapping("/colaboradores")
+	public List<Colaborador> listColaboradores() {
+		return colaborador_Service.findAll();
 	}
 
-	@PostMapping(value = "/mascotas")
-	public ResponseEntity<Mascota> saveUsuario(@RequestBody Mascota mascota) {
+	@PostMapping(value = "/colaboradores")
+	public ResponseEntity<Colaborador> saveColaborador(@RequestBody Colaborador colaborador) {
 		try {
-			Mascota mst = mascota_Service.save(mascota);
-			return ResponseEntity.created(new URI("/mascotas/" + mst.getId())).body(mst);
+			Colaborador clb = colaborador_Service.save(colaborador);
+			return ResponseEntity.created(new URI("/colaboradores/" + clb.getId())).body(clb);
 		} catch (Exception e) {
 			return ResponseEntity.status(HttpStatus.BAD_REQUEST).build();
 		}
 	}
-
+	
 	@DeleteMapping(value = "/del/{id}")
-	private ResponseEntity<Boolean> deleteMascota(@PathVariable("id") int id) {
-		mascota_Service.deleteById(id);
-		return ResponseEntity.ok(!(mascota_Service.findById(id) != null));
+	private ResponseEntity<Boolean> deleteColaborador(@PathVariable("id") int id) {
+		colaborador_Service.deleteById(id);
+		return ResponseEntity.ok(!(colaborador_Service.findById(id) != null));
 	}
 }

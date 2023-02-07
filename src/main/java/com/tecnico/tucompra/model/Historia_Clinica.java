@@ -1,6 +1,8 @@
 package com.tecnico.tucompra.model;
 
+import java.util.ArrayList;
 import java.util.List;
+import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
@@ -17,6 +19,7 @@ public class Historia_Clinica {
 	@NonNull
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
+	@Column(name = "HISTORIA_ID")
 	private int id;
 
 	@OneToOne
@@ -24,10 +27,11 @@ public class Historia_Clinica {
 	private Mascota mascota;
 
 	@NonNull
+	@Column(name = "HISTORIA_FECHA")
 	private int fecha_creacion;
 
 	@OneToMany
-	private List<Detalle_Historia_Clinica> detalles;
+	private List<Detalle_Historia_Clinica> detalles = new ArrayList<Detalle_Historia_Clinica>();
 
 	public Mascota getMascota() {
 		return mascota;
@@ -59,19 +63,5 @@ public class Historia_Clinica {
 
 	public void setId(int id) {
 		this.id = id;
-	}
-
-	public Detalle_Historia_Clinica addDetalle_Historia_Clinica(Detalle_Historia_Clinica detalle_Historia_Clinica) {
-		getDetalles().add(detalle_Historia_Clinica);
-		detalle_Historia_Clinica.setHistoria_clinica(this);
-		
-		return detalle_Historia_Clinica;
-	}
-	
-	public Detalle_Historia_Clinica removeDetalle_Historia_Clinica(Detalle_Historia_Clinica detalle_Historia_Clinica) {
-		getDetalles().remove(detalle_Historia_Clinica);
-		detalle_Historia_Clinica.setHistoria_clinica(null);
-		
-		return detalle_Historia_Clinica;
 	}
 }

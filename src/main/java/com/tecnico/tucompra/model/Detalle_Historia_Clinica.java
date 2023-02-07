@@ -1,10 +1,13 @@
 package com.tecnico.tucompra.model;
 
 import java.util.Date;
+
+import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.persistence.JoinColumn;
 import jakarta.persistence.ManyToOne;
 import jakarta.persistence.OneToOne;
 import jakarta.persistence.Table;
@@ -17,30 +20,39 @@ public class Detalle_Historia_Clinica {
 	@NonNull
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
+	@Column(name = "DETALLE_ID")
 	private int id;
 
 	@NonNull
+	@Column(name = "DETALLE_TEMPERATURA")
 	private String temperatura;
 
 	@NonNull
+	@Column(name = "DETALLE_PESO")
 	private double peso;
 
 	@NonNull
+	@Column(name = "DETALLE_FRECUENCIA_CARDIACA")
 	private double frecuencia_cardiaca;
 
 	@NonNull
+	@Column(name = "DETALLE_FRECUENCIA_RESPIRATORIA")
 	private double frecuencia_respiratoria;
 
 	@NonNull
+	@Column(name = "DETALLE_FECHA")
 	private Date fecha_hora;
 
 	@NonNull
+	@Column(name = "DETALLE_ALIMENTACION")
 	private String alimentacion;
 
 	@NonNull
+	@Column(name = "DETALLE_HABITAD")
 	private String habitad;
 
 	@NonNull
+	@Column(name = "DETALLE_OBSERVACION")
 	private String observacion;
 
 	@OneToOne
@@ -48,6 +60,7 @@ public class Detalle_Historia_Clinica {
 
 	@ManyToOne
 	@NonNull
+	@JoinColumn (name = "DTLE_HISTORIA_ID")
 	private Historia_Clinica historia_clinica;
 
 	public String getTemperatura() {

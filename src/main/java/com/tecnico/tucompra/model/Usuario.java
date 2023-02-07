@@ -45,7 +45,7 @@ public class Usuario {
 	@Column(name = "USUARIO_SEXO",length = 1)
 	private int sexo;
 
-	@OneToMany
+	@OneToMany(mappedBy="usuario")
 	private List<Mascota> mascotas = new ArrayList<Mascota>();
 
 	public int getId() {
@@ -110,19 +110,5 @@ public class Usuario {
 
 	public void setMascotas(List<Mascota> mascotas) {
 		this.mascotas = mascotas;
-	}
-
-	public Mascota addMascota(Mascota mascota) {
-		getMascotas().add(mascota);
-		mascota.setUsuario(this);
-
-		return mascota;
-	}
-
-	public Mascota removeMascota(Mascota mascota) {
-		getMascotas().remove(mascota);
-		mascota.setUsuario(null);
-
-		return mascota;
 	}
 }

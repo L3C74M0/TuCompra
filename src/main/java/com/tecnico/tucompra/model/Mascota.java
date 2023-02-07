@@ -1,5 +1,6 @@
 package com.tecnico.tucompra.model;
 
+import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
@@ -17,12 +18,15 @@ public class Mascota {
 	@NonNull
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
+	@Column(name = "MASCOTA_ID")
 	private int id;
 
 	@NonNull
+	@Column(name = "MASCOTA_NOMBRE")
 	private String nombre;
 
 	@NonNull
+	@Column(name = "MASCOTA_RAZA")
 	private String raza;
 
 	@ManyToOne
@@ -31,6 +35,7 @@ public class Mascota {
 	private Usuario usuario;
 
 	@NonNull
+	@Column(name = "MASCOTA_SEXO")
 	private char sexo;
 
 	@OneToOne

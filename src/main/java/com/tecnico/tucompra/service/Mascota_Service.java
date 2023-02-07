@@ -1,5 +1,6 @@
 package com.tecnico.tucompra.service;
 
+import java.util.List;
 import java.util.Optional;
 import com.tecnico.tucompra.model.Historia_Clinica;
 import com.tecnico.tucompra.model.Mascota;
@@ -17,7 +18,9 @@ public interface Mascota_Service {
 
 	public void delete(Mascota mascota);
 
-	public Iterable<Mascota> findAll();
+	public List<Mascota> findAll();
 
 	public Optional<Mascota> findById(int id);
+	
+	public void deleteById(int id);
 }
