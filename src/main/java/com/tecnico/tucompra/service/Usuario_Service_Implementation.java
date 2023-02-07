@@ -79,7 +79,7 @@ public class Usuario_Service_Implementation implements Usuario_Service {
 	}
 
 	@Override
-	public Iterable<Usuario> findAll() {
+	public List<Usuario> findAll() {
 		return usuario_repository.findAll();
 	}
 

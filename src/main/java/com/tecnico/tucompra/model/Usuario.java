@@ -34,7 +34,7 @@ public class Usuario {
 	private char tipo_documento;
 
 	@NonNull
-	@Column(unique = true, name = "USUARIO_DOCUMENTO")
+	@Column(unique = true, name = "USUARIO_DOCUMENTO", length = 10)
 	private int documento_identificacion;
 
 	@NonNull
@@ -42,7 +42,7 @@ public class Usuario {
 	private char estado;
 
 	@NonNull
-	@Column(name = "USUARIO_SEXO")
+	@Column(name = "USUARIO_SEXO",length = 1)
 	private int sexo;
 
 	@OneToMany

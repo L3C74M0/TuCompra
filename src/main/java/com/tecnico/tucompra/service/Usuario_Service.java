@@ -17,7 +17,7 @@ public interface Usuario_Service {
 
 	public void delete(Usuario usuario);
 
-	public Iterable<Usuario> findAll();
+	public List<Usuario> findAll();
 
 	public Optional<Usuario> findById(int id);
 }
