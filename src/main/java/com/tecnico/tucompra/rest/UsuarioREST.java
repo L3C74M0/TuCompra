@@ -42,25 +42,4 @@ public class UsuarioREST {
 		usuario_Service.deleteById(id);
 		return ResponseEntity.ok(!(usuario_Service.findById(id) != null));
 	}
-
-	
-	/**
-	@GetMapping("/usuario/add-usuario")
-	public String addUsuario(Model model, @ModelAttribute("usuario") Usuario usuario) {
-		model.addAttribute("usuario", new Usuario());
-		return "/usuario/add-usuario";
-	}
-
-	@GetMapping("/usuario/edit/{id}")
-	public String editUsuario(@PathVariable("id") int id,
-			@RequestParam(value = "action", required = true) String action, Usuario usuario,
-			BindingResult bindingResult, Model model) {
-		if (action != null && !action.equals("Cancel")) {
-			if (bindingResult.hasErrors()) {
-				model.addAttribute("usuario", usuario);
-				return "usuario/edit-usuario";
-			}
-		}
-		return "redirect:/usuario/";
-	}*/
 }

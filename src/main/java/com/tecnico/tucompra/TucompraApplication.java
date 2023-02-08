@@ -36,6 +36,13 @@ public class TucompraApplication {
 			mst.setRaza("Pastor");
 			mst.setSexo('F');
 			mascotaService.save(mst);
+			
+			Mascota mst2 = new Mascota();
+			mst2.setId(0);
+			mst2.setNombre("Rocco");
+			mst2.setRaza("Pug");
+			mst2.setSexo('M');
+			mascotaService.save(mst2);
 
 			Usuario usr = new Usuario();
 			usr.setId(0);
@@ -50,7 +57,14 @@ public class TucompraApplication {
 			Historia_Clinica hst = new Historia_Clinica();
 			hst.setId(0);
 			hst.setFecha_creacion(0101202);
+			hst.setMascota(mst);
 			historiaService.save(hst);
+			
+			Historia_Clinica hst2 = new Historia_Clinica();
+			hst2.setId(1);
+			hst2.setFecha_creacion(0112002);
+			hst2.setMascota(mst2);
+			historiaService.save(hst2);
 
 			Colaborador clb = new Colaborador();
 			clb.setId(0);
